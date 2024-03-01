@@ -42,16 +42,17 @@ def update(frame):
     update_coor_mov()
 
 
-n = 350  # 模擬數(太多很爽 但是會lag 吃光記憶體會當機 請緩慢增加)
-coor = np.random.normal(0.5, 0.12, size=(n, 2))  # 位置座標
-coor = coor.astype(np.float32)  # 節省資源
-mov = np.zeros_like(coor)
-w = np.ones((10, 10))
-w[5:, 5:] = 2
+if __name__ == '__main__':
+    n = 350  # 模擬數(太多很爽 但是會lag 吃光記憶體會當機 請緩慢增加)
+    coor = np.random.normal(0.5, 0.12, size=(n, 2))  # 位置座標
+    coor = coor.astype(np.float32)  # 節省資源
+    mov = np.zeros_like(coor)
+    w = np.ones((10, 10))
+    w[5:, 5:] = 2
 
-fig_size = 5  # init圖形大小
-fig, ax = plt.subplots(figsize=(fig_size, fig_size))
-p, = ax.plot('', '', 'or', ms=2.5, alpha=0.7)
-ani = FuncAnimation(fig=fig, func=update, frames=1,
-                    init_func=init, interval=20, blit=False)  # fps=50
-plt.show()
+    fig_size = 5  # init圖形大小
+    fig, ax = plt.subplots(figsize=(fig_size, fig_size))
+    p, = ax.plot('', '', 'or', ms=2.5, alpha=0.7)
+    ani = FuncAnimation(fig=fig, func=update, frames=1,
+                        init_func=init, interval=20, blit=False)  # fps=50
+    plt.show()
