@@ -47,8 +47,6 @@ if __name__ == '__main__':
     coor = np.random.normal(0.5, 0.12, size=(n, 2))  # 位置座標
     coor = coor.astype(np.float32)  # 節省資源
     mov = np.zeros_like(coor)
-    w = np.ones((10, 10))
-    w[5:, 5:] = 2
 
     fig_size = 5  # init圖形大小
     fig, ax = plt.subplots(figsize=(fig_size, fig_size))
